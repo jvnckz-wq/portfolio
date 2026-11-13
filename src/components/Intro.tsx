@@ -1,3 +1,4 @@
+import BlurText from "@/components/BlurText";
 import ProfilePhoto from "@/components/ProfilePhoto";
 import { site } from "@/data/site";
 
@@ -12,7 +13,7 @@ export default function Intro() {
             id="intro-title"
             className="mt-1 text-4xl font-bold tracking-tight sm:text-5xl"
           >
-            {site.name}
+            <BlurText text={site.name} trigger="load" delay={120} />
           </h1>
           <p className="mt-4 text-lg text-foreground/70">{site.tagline}</p>
           <div className="mt-6 flex flex-wrap gap-3 text-sm font-medium">

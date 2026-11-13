@@ -4,6 +4,7 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Intro from "@/components/Intro";
+import Reveal from "@/components/Reveal";
 import WorkSection from "@/components/WorkSection";
 import { site } from "@/data/site";
 
@@ -24,9 +25,15 @@ export default function Home() {
       <Header />
       <main id="main" className="mx-auto w-full max-w-4xl flex-1 px-4">
         <Intro />
-        <WorkSection />
-        <AboutSection />
-        <ContactSection />
+        <Reveal>
+          <WorkSection />
+        </Reveal>
+        <Reveal>
+          <AboutSection />
+        </Reveal>
+        <Reveal>
+          <ContactSection />
+        </Reveal>
       </main>
       <Footer />
     </>

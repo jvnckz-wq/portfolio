@@ -1,22 +1,24 @@
 import type { Project } from "@/types";
 
-// TODO: replace these sample projects with your own.
 export const projects: Project[] = [
   {
-    slug: "sample-project-one",
-    title: "Sample Project One",
-    summary: "A short one-line summary of what this project does.",
+    slug: "prime-depot-payroll",
+    title: "Prime Depot: Payroll Management System with Biometrics Attendance Monitoring",
+    summary:
+      "A web-based payroll system for a hardware and construction supply company in Mabini, Batangas.",
     description:
-      "A longer description: the problem it solves, your role, the key decisions you made, and the outcome.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
-    repoUrl: "https://github.com/your-handle/sample-project-one",  },
+      "It automates attendance from biometrics, piece-rate pay for delivery crews, government deductions, loans, and payslips.",
+    tech: ["Next.js", "React", "Tailwind CSS", "Node.js", "Prisma", "PostgreSQL (Neon)", "Vercel"],
+    liveUrl: "https://prime-depot-payroll-system.vercel.app/",
+    awards: ["Best Technical System", "Most Innovative System"],
+  },
   {
-    slug: "sample-project-two",
-    title: "Sample Project Two",
-    summary: "Another short summary to show off a second project.",
+    slug: "portfolio",
+    title: "Personal Portfolio",
+    summary: "This website: a one-page portfolio of my projects, skills, and accomplishments.",
     description:
-      "Describe the goals, the tech stack, and what you learned building it.",
-    tech: ["React", "Node.js"],
-    liveUrl: "https://example.com",
+      "Content lives in typed data files, so updating it doesn't touch the layout. It has light and dark mode and a sticky nav that highlights the section you're on.",
+    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel"],
+    repoUrl: "https://github.com/jvnckz-wq/portfolio",
   },
 ];

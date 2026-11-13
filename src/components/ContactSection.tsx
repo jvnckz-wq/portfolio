@@ -1,4 +1,6 @@
+import BrandIcon, { iconLabelClass, iconTileClass } from "@/components/BrandIcon";
 import { site } from "@/data/site";
+import { socials } from "@/data/socials";
 
 export default function ContactSection() {
   return (
@@ -16,22 +18,27 @@ export default function ContactSection() {
       <p className="mt-6">
         <a
           href={`mailto:${site.email}`}
-          className="font-medium underline underline-offset-4 [overflow-wrap:anywhere]"
+          className="font-medium underline underline-offset-4 wrap-anywhere"
         >
           {site.email}
         </a>
       </p>
-      <ul className="mt-4 flex gap-4 text-sm">
-        {site.socials.map(({ label, href }) => (
-          <li key={href}>
+      {/* Extra top margin leaves room for the hover labels above the icons. */}
+      <ul className="mt-12 flex flex-wrap gap-3">
+        {socials.map(({ label, href, icon }) => (
+          <li key={href} className="group relative">
             <a
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="underline underline-offset-4"
+              aria-label={`${label} (opens in a new tab)`}
+              className={`${iconTileClass} group-focus-within:border-foreground/40 group-focus-within:text-foreground`}
             >
-              {label}
+              <BrandIcon icon={icon} />
             </a>
+            <span aria-hidden className={`${iconLabelClass} group-focus-within:translate-y-0 group-focus-within:opacity-100`}>
+              {label}
+            </span>
           </li>
         ))}
       </ul>

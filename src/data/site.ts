@@ -2,16 +2,13 @@ import type { NavLink, SiteConfig } from "@/types";
 
 export const site: SiteConfig = {
   name: "John Vincent Amar",
+  shortName: "Vincent",
   title: "John Vincent | Portfolio",
   tagline: "Designer and developer building thoughtful, accessible web experiences.",
-  bio: "Write a short bio here: who you are, what you design and build, and what you care about.",
-  description: "Personal portfolio showcasing projects, skills, experience and certifications.",
+  bio: "A fourth-year IT student at STI College Batangas who designs and builds web interfaces with Next.js, React, and Tailwind CSS. I focus on UI/UX and frontend development, turning ideas into responsive, role-based screens that work on both phones and laptops. I care about interfaces that are clear and easy to use for the people who rely on them every day.",
+  description: "Personal portfolio showcasing projects, skills, experience, accomplishments and certifications.",
   email: "amarjohnvincent77@gmail.com",
-  socials: [
-    { label: "GitHub", href: "https://github.com/jvnckz-wq" },
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/john-vincent-57842044b/" },
-    { label: "Instagram", href: "https://www.instagram.com/jvnckz_/" },
-  ],
+  // Social links (with icons) are in src/data/socials.ts.
 };
 
 export const navLinks: NavLink[] = [
