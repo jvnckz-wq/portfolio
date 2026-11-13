@@ -8,8 +8,10 @@ export type Project = {
   repoUrl?: string;
   /** Optional project image shown at the top of its card. Alt text is required. */
   image?: { src: string; alt: string };
-  /** Awards shown as medal icons beside the title; the name appears on hover/focus. */
+  /** Awards shown as medal icons; the name appears on hover/focus. */
   awards?: string[];
+  /** Shown large, with its screenshot in a browser frame. */
+  featured?: boolean;
 };
 
 export type SkillIcon = {
@@ -39,6 +41,8 @@ export type Accomplishment = {
   /** Label the entry is listed under, e.g. "Local Level Competitor". */
   group: string;
   year: string;
+  /** Shown as a highlighted card with a medal instead of a list row. */
+  award?: boolean;
 };
 
 export type Certification = {
@@ -55,7 +59,12 @@ export type SiteConfig = {
   /** Short name used in the footer. */
   shortName: string;
   title: string;
-  tagline: string;
+  /** Fixed start of the intro tagline. */
+  taglineLead: string;
+  /** Words that rotate at the end of the tagline (the first one is shown without JavaScript). */
+  taglineWords: string[];
+  /** Image revealed when hovering the profile photo, and shown in full when it is clicked (flipped). */
+  hoverPhoto?: { src: string; alt: string };
   bio: string;
   /** Profile photo shown beside the name. Without it, initials are shown. */
   photo?: { src: string; alt: string };

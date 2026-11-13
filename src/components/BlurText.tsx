@@ -38,6 +38,8 @@ type BlurTextProps = {
   color?: string;
   fromColor?: string;
   focusOnHover?: boolean;
+  /** With trigger 'view': replay each time the text re-enters the viewport (local addition). */
+  replayOnView?: boolean;
 };
 
 interface EffectConfig {
@@ -237,7 +239,8 @@ const BlurText = ({
   loopDelay = 2,
   color,
   fromColor,
-  focusOnHover = false
+  focusOnHover = false,
+  replayOnView = false
 }: BlurTextProps) => {
   const ref = useRef<HTMLSpanElement>(null);
   const [phase, setPhase] = useState<Phase>(() => startPhase(trigger));
@@ -297,9 +300,22 @@ const BlurText = ({
   const inTotal = (totalDuration * (custom ? 1 : Math.max(1, fx.settle * 2.2)) + maxRank * stagger) * 1000;
   const outTotal = (exitDuration + maxRank * exitStagger) * 1000;
 
+  // replayOnView: play again every time the text scrolls back into view (resets once it has left).
+  useEffect(() => {
+    if (trigger !== 'view' || !replayOnView) return undefined;
+    const element = ref.current;
+    if (!element) return undefined;
+    const observer = new IntersectionObserver(
+      ([entry]) => setPhase(current => (entry.isIntersecting ? (current === 'from' ? 'in' : current) : 'from')),
+      { threshold, rootMargin }
+    );
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [trigger, replayOnView, threshold, rootMargin]);
+
   useEffect(() => {
     // Load/hover/click already start in their own phase (see startPhase), so only 'view' waits here.
-    if (phase !== 'from' || trigger !== 'view') return undefined;
+    if (phase !== 'from' || trigger !== 'view' || replayOnView) return undefined;
     const element = ref.current;
     if (!element) return undefined;
     const observer = new IntersectionObserver(
@@ -313,7 +329,7 @@ const BlurText = ({
     );
     observer.observe(element);
     return () => observer.disconnect();
-  }, [phase, trigger, threshold, rootMargin]);
+  }, [phase, trigger, threshold, rootMargin, replayOnView]);
 
   useEffect(() => {
     let timer = 0;

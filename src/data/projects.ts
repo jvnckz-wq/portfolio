@@ -12,6 +12,11 @@ export const projects: Project[] = [
     tech: ["Next.js", "React", "Tailwind CSS", "Node.js", "PostgreSQL (Neon)"],
     liveUrl: "https://prime-depot-payroll-system.vercel.app/",
     awards: ["Best Technical System", "Most Innovative System"],
+    featured: true,
+    image: {
+      src: "/projects/prime-depot.jpg",
+      alt: "Prime Depot sign-in screen: the login form beside a red panel with a construction worker illustration",
+    },
   },
   {
     slug: "portfolio",

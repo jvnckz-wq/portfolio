@@ -6,7 +6,7 @@ export default function TechStack() {
   return (
     <ul className="mt-10 flex flex-wrap gap-3">
       {skills.map((skill) => (
-        <li key={skill.name} className="group relative">
+        <li data-reveal-item key={skill.name} className="group relative">
           <span role="img" aria-label={skill.name} className={iconTileClass}>
             {skill.icon ? (
               <BrandIcon icon={skill.icon} />

@@ -7,7 +7,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-foreground/10 bg-background/80 backdrop-blur">
       <nav
         aria-label="Main"
-        className="mx-auto flex max-w-4xl flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between"
+        className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between"
       >
         <div className="flex items-center justify-between">
           <a href="#top" className="font-semibold tracking-tight">

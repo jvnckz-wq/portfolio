@@ -53,6 +53,17 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  /* Full-width bands (dot grid, marquee) use 100vw; don't let them cause sideways scrolling. */
+  overflow-x: clip;
+}
+
+/* Scroll reveal (see Reveal.tsx): only once JavaScript has set data-reveal-ready. */
+[data-reveal-ready] [data-reveal-item] {
+  transition: opacity 0.6s ease-out, translate 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+[data-reveal-ready] [data-reveal-item]:not([data-shown]) {
+  opacity: 0;
+  translate: 0 1.5rem;
 }
 
 ::selection {

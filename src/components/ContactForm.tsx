@@ -27,7 +27,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} onInput={() => status === "sent" && setStatus("idle")} className="mt-6 space-y-4">
+    <form onSubmit={handleSubmit} onInput={() => status === "sent" && setStatus("idle")} className="space-y-4">
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="block text-sm font-medium">
           Name
