@@ -15,7 +15,7 @@ const links = [
 
 export default function ContactSection() {
   return (
-    <section id="contact" aria-labelledby="contact-title" className="relative border-t border-foreground/10 py-20">
+    <section id="contact" aria-labelledby="contact-title" className="relative border-t border-foreground/10 py-14 sm:py-20">
       <SectionWatermark text="CONTACT">
         <p data-reveal-item className="text-sm font-medium uppercase tracking-widest text-foreground/60">
           Contact
@@ -55,7 +55,7 @@ export default function ContactSection() {
         </div>
 
         {/* Right: the form, in a solid panel so the grid backdrop doesn't run through the fields. */}
-        <div data-reveal-item className="rounded-2xl border border-foreground/15 bg-background p-6 sm:p-8 lg:self-start">
+        <div data-reveal-item className="rounded-2xl border border-foreground/15 bg-background p-5 sm:p-8 lg:self-start">
           <ContactForm />
         </div>
       </div>

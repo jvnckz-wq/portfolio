@@ -5,23 +5,18 @@ import { site } from "@/data/site";
 export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-foreground/10 bg-background/80 backdrop-blur">
+      {/* One row on every screen size. Phones show the short name so everything fits. */}
       <nav
         aria-label="Main"
-        className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between"
+        className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 py-2.5 sm:py-4"
       >
-        <div className="flex items-center justify-between">
-          <a href="#top" className="font-semibold tracking-tight">
-            {site.name}
-          </a>
-          <div className="sm:hidden">
-            <ThemeToggle />
-          </div>
-        </div>
-        <div className="flex items-center gap-4">
+        <a href="#top" className="shrink-0 font-semibold tracking-tight">
+          <span className="sm:hidden">{site.shortName}</span>
+          <span className="hidden sm:inline">{site.name}</span>
+        </a>
+        <div className="flex items-center gap-1 sm:gap-4">
           <NavLinks />
-          <div className="hidden sm:block">
-            <ThemeToggle />
-          </div>
+          <ThemeToggle />
         </div>
       </nav>
     </header>

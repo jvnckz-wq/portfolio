@@ -42,7 +42,8 @@ export default function NavLinks() {
 
   return (
     // Negative margin on mobile lines the first pill's text up with the site name.
-    <ul className="-ml-3 flex flex-wrap gap-1 text-sm sm:ml-0">
+    // Phones: taller links (40px) so they're easy to tap; tighter padding so the row fits.
+    <ul className="flex gap-0.5 text-sm sm:gap-1">
       {navLinks.map(({ label, href }) => {
         const isActive = active === href.slice(1);
         return (
@@ -50,7 +51,7 @@ export default function NavLinks() {
             <a
               href={href}
               aria-current={isActive ? "location" : undefined}
-              className={`inline-block rounded-full px-3 py-1 transition-colors ${
+              className={`inline-flex min-h-10 items-center rounded-full px-2.5 transition-colors sm:min-h-0 sm:px-3 sm:py-1 ${
                 isActive
                   ? "bg-foreground text-background"
                   : "text-foreground/70 hover:bg-foreground/5 hover:text-foreground"

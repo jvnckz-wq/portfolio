@@ -14,7 +14,7 @@ export default function AwardMedals({ awards, align = "right" }: { awards: strin
             role="img"
             aria-label={award}
             tabIndex={0}
-            className="flex size-8 items-center justify-center rounded-full text-foreground/70 transition-colors group-hover:text-foreground group-focus-within:text-foreground"
+            className="flex size-10 items-center justify-center rounded-full text-foreground/70 transition-colors group-hover:text-foreground group-focus-within:text-foreground"
           >
             <BrandIcon icon={medalIcon} size="size-6" />
           </span>

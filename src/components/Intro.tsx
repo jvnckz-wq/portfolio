@@ -10,14 +10,14 @@ export default function Intro() {
     <section
       id="top"
       aria-labelledby="intro-title"
-      className="relative flex min-h-[calc(100svh-6.8125rem)] flex-col justify-center py-12 sm:min-h-[calc(100svh-4.3125rem)]"
+      className="relative flex min-h-[calc(100svh-3.8125rem)] flex-col justify-center pt-8 pb-20 sm:min-h-[calc(100svh-4.3125rem)] sm:py-12"
     >
       {/* Interactive dot grid behind the intro, full window width. */}
       <div aria-hidden className="pointer-events-none absolute inset-y-0 left-1/2 -z-10 w-screen -translate-x-1/2">
         <HeroDots />
       </div>
       {/* Text comes first in the DOM; on mobile the photo is shown above it. */}
-      <div className="flex flex-col-reverse gap-10 md:flex-row md:items-center md:justify-between md:gap-10">
+      <div className="flex flex-col-reverse gap-8 md:flex-row md:items-center md:justify-between md:gap-10">
         <div className="min-w-0 max-w-2xl">
           <p className="text-base text-foreground/70 sm:text-lg">Hi, I&apos;m</p>
           <h1

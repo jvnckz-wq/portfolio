@@ -19,7 +19,7 @@ export default function ThemeToggle() {
       onClick={toggle}
       aria-label="Toggle dark mode"
       title="Toggle dark mode"
-      className="inline-flex size-9 items-center justify-center rounded-full border border-foreground/15 text-foreground/70 transition-colors hover:border-foreground/40 hover:text-foreground"
+      className="inline-flex size-10 shrink-0 items-center sm:size-9 justify-center rounded-full border border-foreground/15 text-foreground/70 transition-colors hover:border-foreground/40 hover:text-foreground"
     >
       {/* Moon in light mode (switch to dark), sun in dark mode (switch to light). */}
       <svg

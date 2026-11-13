@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useRef, useState, type PointerEvent } from "react";
 import { site } from "@/data/site";
 
-const sizeClass = "size-64 sm:size-72 md:size-80 lg:size-96 xl:size-108";
+const sizeClass = "size-56 sm:size-72 md:size-80 lg:size-96 xl:size-108";
 
 function initials(name: string) {
   return name

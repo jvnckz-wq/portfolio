@@ -11,7 +11,7 @@ export default function WorkSection() {
     <section
       id="projects"
       aria-labelledby="projects-title"
-      className="relative border-t border-foreground/10 py-20"
+      className="relative border-t border-foreground/10 py-14 sm:py-20"
     >
       <SectionWatermark text="PROJECTS">
         <h2 id="projects-title" className="text-3xl font-bold tracking-tight sm:text-4xl">
