@@ -1,8 +1,12 @@
 @import "tailwindcss";
 
+/* `dark:` utilities follow the theme set on <html data-theme="..."> by the toggle. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  color-scheme: light;
 }
 
 @theme inline {
@@ -12,16 +16,25 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* Theme chosen with the header toggle. */
+:root[data-theme="dark"] {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  color-scheme: dark;
+}
+
+/* No choice made (or no JavaScript): follow the system setting. */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --background: #0a0a0a;
     --foreground: #ededed;
+    color-scheme: dark;
   }
 }
 
 /* Keep section headings clear of the sticky header when jumping via the nav. */
 html {
-  scroll-padding-top: 6.5rem;
+  scroll-padding-top: 7rem;
 }
 
 @media (min-width: 640px) {

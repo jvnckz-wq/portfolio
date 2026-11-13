@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import AboutSection from "@/components/AboutSection";
-import CertificationsSection from "@/components/CertificationsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -27,7 +26,6 @@ export default function Home() {
         <Intro />
         <WorkSection />
         <AboutSection />
-        <CertificationsSection />
         <ContactSection />
       </main>
       <Footer />

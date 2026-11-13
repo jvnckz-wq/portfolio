@@ -1,4 +1,6 @@
-import { navLinks, site } from "@/data/site";
+import NavLinks from "@/components/NavLinks";
+import ThemeToggle from "@/components/ThemeToggle";
+import { site } from "@/data/site";
 
 export default function Header() {
   return (
@@ -7,18 +9,20 @@ export default function Header() {
         aria-label="Main"
         className="mx-auto flex max-w-4xl flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between"
       >
-        <a href="#top" className="font-semibold tracking-tight">
-          {site.name}
-        </a>
-        <ul className="flex flex-wrap gap-x-4 gap-y-1 text-sm">
-          {navLinks.map(({ label, href }) => (
-            <li key={href}>
-              <a href={href} className="text-foreground/70 hover:text-foreground">
-                {label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className="flex items-center justify-between">
+          <a href="#top" className="font-semibold tracking-tight">
+            {site.name}
+          </a>
+          <div className="sm:hidden">
+            <ThemeToggle />
+          </div>
+        </div>
+        <div className="flex items-center gap-4">
+          <NavLinks />
+          <div className="hidden sm:block">
+            <ThemeToggle />
+          </div>
+        </div>
       </nav>
     </header>
   );

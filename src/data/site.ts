@@ -6,6 +6,8 @@ export const site: SiteConfig = {
   title: "Your Name | Portfolio",
   tagline: "Designer and developer building thoughtful, accessible web experiences.",
   bio: "Write a short bio here: who you are, what you design and build, and what you care about.",
+  // TODO: put your photo in public/ (e.g. public/profile.jpg) and uncomment:
+  // photo: { src: "/profile.jpg", alt: "Portrait of Your Name" },
   description: "Personal portfolio showcasing projects, skills, experience and certifications.",
   // TODO: placeholders. Replace with your own public email and profile URLs.
   email: "your.email@example.com",
@@ -19,6 +21,5 @@ export const site: SiteConfig = {
 export const navLinks: NavLink[] = [
   { label: "Projects", href: "#projects" },
   { label: "About", href: "#about" },
-  { label: "Certifications", href: "#certifications" },
   { label: "Contact", href: "#contact" },
 ];
