@@ -11,7 +11,12 @@ export const projects: Project[] = [
     // Names match Technical Proficiencies (src/data/skills.ts) so they show that icon.
     tech: ["Next.js", "React", "Tailwind CSS", "Node.js", "PostgreSQL (Neon)"],
     liveUrl: "https://prime-depot-payroll-system.vercel.app/",
-    awards: ["Best Technical System", "Most Innovative System"],
+    awards: [
+      "Best Technical System",
+      "Most Innovative System",
+      "2nd Place, Best UI Design",
+      "2nd Place, Best User Experience",
+    ],
     featured: true,
     image: {
       src: "/projects/prime-depot.jpg",

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import AwardMedals from "@/components/AwardMedals";
+import CursorLabel from "@/components/CursorLabel";
 import TechIcons from "@/components/TechIcons";
 import type { Project } from "@/types";
 
@@ -9,7 +10,8 @@ export default function FeaturedProject({ project }: { project: Project }) {
   return (
     <article className="grid items-center gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:gap-12">
       {/* Browser frame. The screenshot repeats the "Live site" link below, so it is skipped by
-          keyboard and screen readers. */}
+          keyboard and screen readers. With a mouse, the cursor turns into an "Open ↗" label. */}
+      <CursorLabel label="Open ↗">
       <a
         data-reveal-item
         href={project.liveUrl ?? project.repoUrl}
@@ -19,7 +21,7 @@ export default function FeaturedProject({ project }: { project: Project }) {
         aria-hidden
         className="group block"
       >
-        <div className="overflow-hidden rounded-xl border border-foreground/15 bg-foreground/3 shadow-[0_30px_60px_-30px_rgb(0_0_0/0.45)] transition duration-500 group-hover:-translate-y-1 group-hover:border-foreground/30">
+        <div className="overflow-hidden rounded-xl border border-foreground/15 bg-background shadow-[0_30px_60px_-30px_rgb(0_0_0/0.45)] transition duration-500 group-hover:-translate-y-1 group-hover:border-foreground/30">
           <div className="flex items-center gap-2 border-b border-foreground/10 px-4 py-3">
             <span className="size-2.5 rounded-full bg-foreground/20" />
             <span className="size-2.5 rounded-full bg-foreground/20" />
@@ -43,6 +45,7 @@ export default function FeaturedProject({ project }: { project: Project }) {
           )}
         </div>
       </a>
+      </CursorLabel>
 
       <div data-reveal-item className="flex flex-col gap-4">
         <div className="flex items-center justify-between gap-4">

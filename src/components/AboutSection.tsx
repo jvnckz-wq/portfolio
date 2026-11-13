@@ -1,7 +1,9 @@
 import Image from "next/image";
 import BlurText from "@/components/BlurText";
 import BrandIcon from "@/components/BrandIcon";
+import SectionWatermark from "@/components/SectionWatermark";
 import TechStack from "@/components/TechStack";
+import TiltCard from "@/components/TiltCard";
 import { accomplishments } from "@/data/accomplishments";
 import { certifications } from "@/data/certifications";
 import { experience } from "@/data/experience";
@@ -20,14 +22,17 @@ export default function AboutSection() {
   const groups = [...new Set(others.map((a) => a.group))];
 
   return (
-    <section id="about" aria-labelledby="about-title" className="border-t border-foreground/10 py-20">
+    <section id="about" aria-labelledby="about-title" className="relative border-t border-foreground/10 py-20">
       <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] lg:gap-16">
-        {/* Left: title and bio, pinned while the right column scrolls (wide screens). */}
+        {/* Left: title (on its outline word) and bio, pinned while the right column scrolls (wide
+            screens). The smaller outline fits this column, so it never reaches the right column. */}
         <div className="lg:sticky lg:top-28 lg:self-start">
-          <h2 id="about-title" className="text-3xl font-bold tracking-tight sm:text-4xl">
-            <BlurText text="About" trigger="view" replayOnView delay={80} />
-          </h2>
-          <p data-reveal-item className="mt-5 text-lg text-foreground/70 sm:text-justify">
+          <SectionWatermark text="ABOUT" size="sm">
+            <h2 id="about-title" className="text-3xl font-bold tracking-tight sm:text-4xl">
+              <BlurText text="About" trigger="view" replayOnView delay={80} />
+            </h2>
+          </SectionWatermark>
+          <p data-reveal-item className="mt-6 text-lg text-foreground/70 sm:text-justify">
             {site.bio}
           </p>
         </div>
@@ -79,8 +84,8 @@ export default function AboutSection() {
               <ul className="mt-6 grid gap-4 sm:grid-cols-2">
                 {awards.map((a) => (
                   <li data-reveal-item key={`${a.event}-${a.year}`}>
-                    <div className="group h-full rounded-xl border border-foreground/15 p-5 transition duration-300 hover:-translate-y-0.5 hover:border-foreground/40">
-                      {/* The medal turns gold on hover (BrandIcon colours follow the group hover). */}
+                    <TiltCard className="h-full rounded-xl border border-foreground/15 bg-background p-5 hover:border-foreground/40">
+                      {/* Tilts towards the mouse with a light sweep; the medal turns gold (group hover). */}
                       <span className="flex size-11 items-center justify-center rounded-full border border-foreground/15 text-foreground/80">
                         <BrandIcon icon={medalIcon} size="size-6" />
                       </span>
@@ -88,7 +93,7 @@ export default function AboutSection() {
                       <p className="mt-1 text-sm text-foreground/60">
                         {a.group} &middot; {a.year}
                       </p>
-                    </div>
+                    </TiltCard>
                   </li>
                 ))}
               </ul>

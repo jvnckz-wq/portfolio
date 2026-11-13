@@ -1,6 +1,7 @@
 import BlurText from "@/components/BlurText";
 import BrandIcon, { iconLabelClass, iconTileClass } from "@/components/BrandIcon";
 import ContactForm from "@/components/ContactForm";
+import SectionWatermark from "@/components/SectionWatermark";
 import { siGmail } from "simple-icons";
 import { fromSimpleIcon } from "@/data/icons";
 import { site } from "@/data/site";
@@ -14,14 +15,16 @@ const links = [
 
 export default function ContactSection() {
   return (
-    <section id="contact" aria-labelledby="contact-title" className="border-t border-foreground/10 py-20">
-      <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+    <section id="contact" aria-labelledby="contact-title" className="relative border-t border-foreground/10 py-20">
+      <SectionWatermark text="CONTACT">
+        <p data-reveal-item className="text-sm font-medium uppercase tracking-widest text-foreground/60">
+          Contact
+        </p>
+      </SectionWatermark>
+      <div className="mt-10 grid gap-12 lg:grid-cols-2 lg:gap-16">
         {/* Left: big call to action and direct links. */}
         <div>
-          <p data-reveal-item className="text-sm font-medium uppercase tracking-widest text-foreground/60">
-            Contact
-          </p>
-          <h2 id="contact-title" className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+          <h2 id="contact-title" className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
             <BlurText text="Let's work together." trigger="view" replayOnView delay={90} />
           </h2>
           <p data-reveal-item className="mt-6 max-w-md text-lg text-foreground/70">
@@ -51,8 +54,8 @@ export default function ContactSection() {
           </ul>
         </div>
 
-        {/* Right: the form, in a light panel. */}
-        <div data-reveal-item className="rounded-2xl border border-foreground/15 p-6 sm:p-8 lg:self-start">
+        {/* Right: the form, in a solid panel so the grid backdrop doesn't run through the fields. */}
+        <div data-reveal-item className="rounded-2xl border border-foreground/15 bg-background p-6 sm:p-8 lg:self-start">
           <ContactForm />
         </div>
       </div>

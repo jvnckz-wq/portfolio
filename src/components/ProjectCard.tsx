@@ -4,9 +4,9 @@ import SpotlightCard from "@/components/SpotlightCard";
 import TechIcons from "@/components/TechIcons";
 import type { Project } from "@/types";
 
-/** Card surface follows the site theme; the spotlight and border use the text colour. */
+/** Solid card surface in the page colour (hides the grid backdrop); spotlight and border use the text colour. */
 const spotlightTheme = {
-  "--spotlight-card-surface": "transparent",
+  "--spotlight-card-surface": "var(--background)",
   "--spotlight-card-shadow": "none",
   "--spotlight-card-border": "color-mix(in srgb, var(--foreground) 15%, transparent)",
 } as CSSProperties;

@@ -1,6 +1,7 @@
 import BlurText from "@/components/BlurText";
 import FeaturedProject from "@/components/FeaturedProject";
 import ProjectCard from "@/components/ProjectCard";
+import SectionWatermark from "@/components/SectionWatermark";
 import { projects } from "@/data/projects";
 
 export default function WorkSection() {
@@ -10,11 +11,13 @@ export default function WorkSection() {
     <section
       id="projects"
       aria-labelledby="projects-title"
-      className="border-t border-foreground/10 py-20"
+      className="relative border-t border-foreground/10 py-20"
     >
-      <h2 id="projects-title" className="text-3xl font-bold tracking-tight sm:text-4xl">
-        <BlurText text="Projects" trigger="view" replayOnView delay={80} />
-      </h2>
+      <SectionWatermark text="PROJECTS">
+        <h2 id="projects-title" className="text-3xl font-bold tracking-tight sm:text-4xl">
+          <BlurText text="Projects" trigger="view" replayOnView delay={80} />
+        </h2>
+      </SectionWatermark>
       <div className="mt-10 flex flex-col gap-16">
         {featured.map((p) => (
           <FeaturedProject key={p.slug} project={p} />

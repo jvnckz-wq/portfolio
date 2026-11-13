@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import AboutSection from "@/components/AboutSection";
+import AmbientBackdrop from "@/components/AmbientBackdrop";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -30,15 +31,18 @@ export default function Home() {
       <main id="main" className="mx-auto w-full max-w-6xl flex-1 px-4">
         <Intro />
         <TechMarquee />
-        <Reveal>
-          <WorkSection />
-        </Reveal>
-        <Reveal>
-          <AboutSection />
-        </Reveal>
-        <Reveal>
-          <ContactSection />
-        </Reveal>
+        {/* Drifting dots + cursor glow behind everything after the hero. */}
+        <AmbientBackdrop>
+          <Reveal>
+            <WorkSection />
+          </Reveal>
+          <Reveal>
+            <AboutSection />
+          </Reveal>
+          <Reveal>
+            <ContactSection />
+          </Reveal>
+        </AmbientBackdrop>
       </main>
       <Footer />
     </Sparks>
