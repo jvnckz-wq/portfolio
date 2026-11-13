@@ -58,17 +58,6 @@ export const medalIcon: SkillIcon = {
   ],
 };
 
-/** SQL is a language, not a brand, so it gets a generic database icon (Lucide "database", ISC). */
-export const sqlIcon: SkillIcon = {
-  viewBox: "0 0 24 24",
-  stroke: true,
-  paths: [
-    { d: "M3 5a9 3 0 1 0 18 0a9 3 0 1 0 -18 0" },
-    { d: "M3 5v14a9 3 0 0 0 18 0V5" },
-    { d: "M3 12a9 3 0 0 0 18 0" },
-  ],
-};
-
 /** REST APIs are not a brand, so they get a generic API (curly braces) icon. */
 export const restApiIcon: SkillIcon = {
   viewBox: "0 0 24 24",

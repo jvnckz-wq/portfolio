@@ -1,6 +1,15 @@
 import BrandIcon, { iconLabelClass, iconTileClass } from "@/components/BrandIcon";
+import ContactForm from "@/components/ContactForm";
+import { siGmail } from "simple-icons";
+import { fromSimpleIcon } from "@/data/icons";
 import { site } from "@/data/site";
 import { socials } from "@/data/socials";
+
+// Email comes first and opens the visitor's email app; the socials open in a new tab.
+const links = [
+  { label: "Email", href: `mailto:${site.email}`, icon: fromSimpleIcon(siGmail), external: false },
+  ...socials.map((s) => ({ ...s, external: true })),
+];
 
 export default function ContactSection() {
   return (
@@ -15,23 +24,17 @@ export default function ContactSection() {
       <p className="mt-4 max-w-xl text-foreground/70">
         Have a project or opportunity in mind? Reach out by email or on social.
       </p>
-      <p className="mt-6">
-        <a
-          href={`mailto:${site.email}`}
-          className="font-medium underline underline-offset-4 wrap-anywhere"
-        >
-          {site.email}
-        </a>
-      </p>
+      <ContactForm />
+      <p className="mt-10 text-sm text-foreground/70">Or reach me directly:</p>
       {/* Extra top margin leaves room for the hover labels above the icons. */}
-      <ul className="mt-12 flex flex-wrap gap-3">
-        {socials.map(({ label, href, icon }) => (
+      <ul className="mt-10 flex flex-wrap gap-3">
+        {links.map(({ label, href, icon, external }) => (
           <li key={href} className="group relative">
             <a
               href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${label} (opens in a new tab)`}
+              {...(external
+                ? { target: "_blank", rel: "noopener noreferrer", "aria-label": `${label} (opens in a new tab)` }
+                : { "aria-label": `Email ${site.email}` })}
               className={`${iconTileClass} group-focus-within:border-foreground/40 group-focus-within:text-foreground`}
             >
               <BrandIcon icon={icon} />
