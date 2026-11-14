@@ -33,25 +33,16 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
-# obsidian vault (personal notes, not part of the site)
 /portfolio/
-
-# AI tool folders (installed skills, agents, hooks)
 /.agents/
 /.claude/
 /.cursor/
 /.gemini/
 /.codex/
 /.impeccable/
-
-# AI/tool notes (kept locally, not part of the site)
 /AGENTS.md
 /CLAUDE.md
 /PRODUCT.md
-
-# vercel
 .vercel
-
-# typescript
 *.tsbuildinfo
 next-env.d.ts
