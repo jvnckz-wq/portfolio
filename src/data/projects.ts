@@ -9,7 +9,7 @@ export const projects: Project[] = [
     description:
       "It automates attendance from biometrics, piece-rate pay for delivery crews, government deductions, loans, and payslips.",
     // Names match Technical Proficiencies (src/data/skills.ts) so they show that icon.
-    tech: ["Next.js", "React", "Tailwind CSS", "Node.js", "PostgreSQL (Neon)"],
+    tech: ["Next.js", "React", "Tailwind CSS", "Node.js", "PostgreSQL", "Neon", "Prisma ORM"],
     liveUrl: "https://prime-depot-payroll-system.vercel.app/",
     awards: [
       "Best Technical System",

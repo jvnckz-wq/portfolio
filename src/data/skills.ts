@@ -1,16 +1,20 @@
 import {
   siCss,
   siGit,
+  siGithub,
   siHtml5,
   siJavascript,
+  siNeon,
   siNextdotjs,
   siNodedotjs,
   siPostgresql,
+  siPrisma,
   siReact,
   siTailwindcss,
   siTypescript,
+  siVercel,
 } from "simple-icons";
-import { figmaIcon, fromSimpleIcon, restApiIcon, vscodeIcon } from "@/data/icons";
+import { figmaIcon, fromSimpleIcon, javaIcon, restApiIcon, vscodeIcon } from "@/data/icons";
 import type { Skill } from "@/types";
 
 // Technical proficiencies, shown as icons. Most come from `simple-icons`
@@ -24,9 +28,14 @@ export const skills: Skill[] = [
   { name: "TypeScript", icon: fromSimpleIcon(siTypescript) },
   { name: "Tailwind CSS", icon: fromSimpleIcon(siTailwindcss) },
   { name: "Node.js", icon: fromSimpleIcon(siNodedotjs) },
+  { name: "Java", icon: javaIcon },
   { name: "PostgreSQL", icon: fromSimpleIcon(siPostgresql) },
+  { name: "Neon", icon: fromSimpleIcon(siNeon) },
+  { name: "Prisma ORM", icon: fromSimpleIcon(siPrisma) },
   { name: "REST APIs", icon: restApiIcon },
   { name: "Git", icon: fromSimpleIcon(siGit) },
+  { name: "GitHub", icon: fromSimpleIcon(siGithub) },
+  { name: "Vercel", icon: fromSimpleIcon(siVercel) },
   { name: "VS Code", icon: vscodeIcon },
   { name: "Figma", icon: figmaIcon },
 ];

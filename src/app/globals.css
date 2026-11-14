@@ -107,6 +107,53 @@ body {
   .draw-check { animation: none; stroke-dashoffset: 0; }
 }
 
+/* Hero entrance (see Intro.tsx): blur + fade + small rise, staggered with --hero-delay.
+   Fill mode is `backwards` so hover styles (opacity, translate) work normally once it ends. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-in {
+    animation: hero-in 0.95s cubic-bezier(0.22, 1, 0.36, 1) var(--hero-delay, 0ms) backwards;
+  }
+  .hero-photo-in {
+    animation: hero-photo-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) var(--hero-delay, 0ms) backwards;
+  }
+  .hero-fade-in {
+    animation: hero-fade 1.35s ease-out backwards;
+  }
+  /* Photo drifts gently once it has come in. */
+  .hero-float {
+    animation: hero-float 6s ease-in-out 1.75s infinite;
+  }
+  /* Scroll arrow fades in last, then bounces. */
+  .hero-scroll {
+    animation: hero-fade 0.7s ease-out 1.9s backwards, hero-bounce 1s 2.6s infinite;
+  }
+}
+@keyframes hero-in {
+  from { opacity: 0; filter: blur(8px); translate: 0 12px; }
+}
+@keyframes hero-photo-in {
+  from { opacity: 0; filter: blur(10px); scale: 0.95; }
+}
+@keyframes hero-fade {
+  from { opacity: 0; }
+}
+@keyframes hero-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes hero-bounce {
+  0%, 100% { transform: translateY(-25%); animation-timing-function: cubic-bezier(0.8, 0, 1, 1); }
+  50% { transform: none; animation-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+}
+
+/* Experience timeline (see ScrollTimeline.tsx): dots stay hollow until reached while scrolling. */
+.tl-dot {
+  transition: background-color 0.3s ease-out;
+}
+[data-tl-ready] > li:not([data-lit]) .tl-dot {
+  background-color: var(--background);
+}
+
 /* Scroll reveal (see Reveal.tsx): only once JavaScript has set data-reveal-ready. */
 [data-reveal-ready] [data-reveal-item] {
   transition: opacity 0.6s ease-out, translate 0.6s cubic-bezier(0.22, 1, 0.36, 1);

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import BlurText from "@/components/BlurText";
 import BrandIcon from "@/components/BrandIcon";
+import ScrollTimeline from "@/components/ScrollTimeline";
 import SectionWatermark from "@/components/SectionWatermark";
 import TechStack from "@/components/TechStack";
 import TiltCard from "@/components/TiltCard";
@@ -47,7 +48,8 @@ export default function AboutSection() {
 
           <div>
             <h3 data-reveal-item className="text-2xl font-semibold">Experience</h3>
-            <ol className="mt-8 space-y-10 border-l border-foreground/15">
+            {/* The line fills in while scrolling and each dot lights up as it is reached. */}
+            <ScrollTimeline className="mt-8 space-y-10 border-l border-foreground/15">
               {experience.map((e) => {
                 const current = /present/i.test(e.period);
                 return (
@@ -57,7 +59,7 @@ export default function AboutSection() {
                       {current && (
                         <span className="absolute inline-flex size-full rounded-full bg-foreground/60 motion-safe:animate-ping" />
                       )}
-                      <span className="relative inline-flex size-2.5 rounded-full bg-foreground ring-4 ring-background" />
+                      <span className="tl-dot relative inline-flex size-2.5 rounded-full border border-foreground bg-foreground ring-4 ring-background" />
                     </span>
                     <div data-reveal-item>
                       <p className="text-sm text-foreground/60">{e.period}</p>
@@ -74,7 +76,7 @@ export default function AboutSection() {
                   </li>
                 );
               })}
-            </ol>
+            </ScrollTimeline>
           </div>
 
           <div id="accomplishments">

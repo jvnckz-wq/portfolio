@@ -10,7 +10,7 @@ function seeded(seed: number) {
   };
 }
 const rand = seeded(20261113);
-const PARTICLES = Array.from({ length: 64 }, () => ({
+const PARTICLES = Array.from({ length: 160 }, () => ({
   left: `${(rand() * 100).toFixed(2)}%`,
   top: `${(rand() * 100).toFixed(2)}%`,
   size: rand() < 0.7 ? 2 : 3,
