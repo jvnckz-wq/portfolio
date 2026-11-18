@@ -70,6 +70,8 @@ export type SiteConfig = {
   photo?: { src: string; alt: string };
   description: string;
   email: string;
+  /** PDFs in public/ linked from the Contact section (open in a new tab). */
+  documents: { label: string; href: string }[];
 };
 
 export type Social = {

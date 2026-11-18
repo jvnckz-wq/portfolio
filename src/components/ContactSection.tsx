@@ -52,6 +52,25 @@ export default function ContactSection() {
               </li>
             ))}
           </ul>
+          {/* Resume and cover letter PDFs (from public/), opened in the browser's PDF viewer. */}
+          <ul className="mt-8 flex flex-wrap gap-3 font-medium">
+            {site.documents.map(({ label, href }) => (
+              <li data-reveal-item key={href}>
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${label} (PDF, opens in a new tab)`}
+                  className="inline-flex items-center gap-2 rounded-full border border-foreground/30 px-5 py-2.5 hover:border-foreground"
+                >
+                  {label}
+                  <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                    <path d="M7 17 17 7M8 7h9v9" />
+                  </svg>
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
 
         {/* Right: the form, in a solid panel so the grid backdrop doesn't run through the fields. */}
