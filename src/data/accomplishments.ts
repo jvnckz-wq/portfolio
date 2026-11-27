@@ -4,8 +4,6 @@ import type { Accomplishment } from "@/types";
 export const accomplishments: Accomplishment[] = [
   { event: "Best Technical System", group: "Capstone Awards: Prime Depot", year: "2026", award: true },
   { event: "Most Innovative System", group: "Capstone Awards: Prime Depot", year: "2026", award: true },
-  { event: "2nd Place, Best UI Design", group: "Capstone Awards: Prime Depot", year: "2026", award: true },
-  { event: "2nd Place, Best User Experience", group: "Capstone Awards: Prime Depot", year: "2026", award: true },
   { event: "STI College Tagisan ng Talino", group: "Local Level Competitor", year: "2026, 2025" },
   { event: "STI College Hackathon", group: "Local Level Competitor", year: "2024" },
 ];

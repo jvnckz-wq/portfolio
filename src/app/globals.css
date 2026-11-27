@@ -172,3 +172,16 @@ body {
   outline: 2px solid var(--foreground);
   outline-offset: 3px;
 }
+
+/* Projects carousel (ProjectCarousel.tsx): the newly shown project's details fade up. */
+@media (prefers-reduced-motion: no-preference) {
+  .carousel-fade {
+    animation: carousel-fade 0.4s ease both;
+  }
+}
+@keyframes carousel-fade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}

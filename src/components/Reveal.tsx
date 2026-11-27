@@ -16,13 +16,11 @@ export default function Reveal({ children }: { children: ReactNode }) {
     if (!root) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    const items = Array.from(root.querySelectorAll<HTMLElement>("[data-reveal-item]"));
-    // Items already on screen start shown, so nothing blinks on first paint.
-    for (const item of items) {
+    // Items already on screen start shown, so nothing blinks on first paint (or when added later).
+    const showIfOnScreen = (item: HTMLElement) => {
       const rect = item.getBoundingClientRect();
       if (rect.top < window.innerHeight && rect.bottom > 0) item.dataset.shown = "";
-    }
-    root.dataset.revealReady = "";
+    };
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -43,8 +41,29 @@ export default function Reveal({ children }: { children: ReactNode }) {
       },
       { rootMargin: "0px 0px -8% 0px" },
     );
-    items.forEach((item) => observer.observe(item));
-    return () => observer.disconnect();
+    const watch = (item: HTMLElement) => {
+      showIfOnScreen(item);
+      observer.observe(item);
+    };
+    root.querySelectorAll<HTMLElement>("[data-reveal-item]").forEach(watch);
+    root.dataset.revealReady = "";
+
+    // Items rendered later (new content, hot reload) are watched too, or they would stay hidden.
+    const mutations = new MutationObserver((records) => {
+      for (const record of records) {
+        record.addedNodes.forEach((node) => {
+          if (!(node instanceof HTMLElement)) return;
+          if (node.matches("[data-reveal-item]")) watch(node);
+          node.querySelectorAll<HTMLElement>("[data-reveal-item]").forEach(watch);
+        });
+      }
+    });
+    mutations.observe(root, { childList: true, subtree: true });
+
+    return () => {
+      observer.disconnect();
+      mutations.disconnect();
+    };
   }, []);
 
   return <div ref={ref}>{children}</div>;

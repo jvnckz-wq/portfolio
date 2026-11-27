@@ -1,12 +1,20 @@
 import BlurText from "@/components/BlurText";
-import FeaturedProject from "@/components/FeaturedProject";
-import ProjectCard from "@/components/ProjectCard";
+import ProjectCarousel, { type CarouselItem } from "@/components/ProjectCarousel";
+import ProjectFrame from "@/components/ProjectFrame";
+import ProjectInfo from "@/components/ProjectInfo";
 import SectionWatermark from "@/components/SectionWatermark";
 import { projects } from "@/data/projects";
 
 export default function WorkSection() {
-  const featured = projects.filter((p) => p.featured);
-  const others = projects.filter((p) => !p.featured);
+  // The featured project comes first, so the carousel opens on it.
+  const ordered = [...projects.filter((p) => p.featured), ...projects.filter((p) => !p.featured)];
+  const items: CarouselItem[] = ordered.map((p) => ({
+    key: p.slug,
+    title: p.title,
+    href: p.liveUrl ?? p.repoUrl,
+    frame: <ProjectFrame project={p} />,
+    info: <ProjectInfo project={p} />,
+  }));
   return (
     <section
       id="projects"
@@ -18,17 +26,8 @@ export default function WorkSection() {
           <BlurText text="Projects" trigger="view" replayOnView delay={80} />
         </h2>
       </SectionWatermark>
-      <div className="mt-10 flex flex-col gap-16">
-        {featured.map((p) => (
-          <FeaturedProject key={p.slug} project={p} />
-        ))}
-        {others.length > 0 && (
-          <div className={`grid gap-4 ${others.length > 1 ? "md:grid-cols-2" : ""}`}>
-            {others.map((p) => (
-              <ProjectCard key={p.slug} project={p} />
-            ))}
-          </div>
-        )}
+      <div className="mt-10">
+        <ProjectCarousel items={items} />
       </div>
     </section>
   );

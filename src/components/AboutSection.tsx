@@ -42,7 +42,7 @@ export default function AboutSection() {
         <div className="flex min-w-0 flex-col gap-16">
           <div>
             {/* Extra top margin on the list leaves room for the hover labels. */}
-            <h3 data-reveal-item className="text-2xl font-semibold">Technical Proficiencies</h3>
+            <h3 data-reveal-item className="text-2xl font-semibold">Tools I&apos;m Learning</h3>
             <TechStack />
           </div>
 

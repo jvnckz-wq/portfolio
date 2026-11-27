@@ -10,7 +10,7 @@ export type Project = {
   image?: { src: string; alt: string };
   /** Awards shown as medal icons; the name appears on hover/focus. */
   awards?: string[];
-  /** Shown large, with its screenshot in a browser frame. */
+  /** Marks the main project. The carousel starts on the first project in the list. */
   featured?: boolean;
 };
 

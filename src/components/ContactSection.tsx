@@ -52,7 +52,7 @@ export default function ContactSection() {
               </li>
             ))}
           </ul>
-          {/* Resume and cover letter PDFs (from public/), opened in the browser's PDF viewer. */}
+          {/* Resume PDF (from public/), opened in the browser's PDF viewer. */}
           <ul className="mt-8 flex flex-wrap gap-3 font-medium">
             {site.documents.map(({ label, href }) => (
               <li data-reveal-item key={href}>
