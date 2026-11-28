@@ -1,10 +1,11 @@
 import NavLinks from "@/components/NavLinks";
+import ScrollHeader from "@/components/ScrollHeader";
 import ThemeToggle from "@/components/ThemeToggle";
 import { site } from "@/data/site";
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-foreground/10 bg-background/80 backdrop-blur">
+    <ScrollHeader>
       {/* One row on every screen size. Phones show the short name so everything fits. */}
       <nav
         aria-label="Main"
@@ -19,6 +20,6 @@ export default function Header() {
           <ThemeToggle />
         </div>
       </nav>
-    </header>
+    </ScrollHeader>
   );
 }
